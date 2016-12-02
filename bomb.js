@@ -116,3 +116,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
+
+// BETTER WAY TO ADD EVENT LISTENERS TO CUT THE WIRES
+
+// for (var i = 0; i < wires.children.length; i++) {
+// 	wires.children[i].addEventListener("click", function()) {
+// 		// Chang src of image to cut version of wire (ID must be named just color)
+// 		this.src = "img/cut-" + this.id + "-wire.png";
+
+// 		// If good choice, change value in array to false
+// 		if(wireIsGood(this.id)) {
+// 			this.removeEventListener("click");
+// 		} else {
+
+// 		}
+// 	}
+// }

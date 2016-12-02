@@ -40,4 +40,13 @@ button {
 	font-family: monospace;
 	font-weight: 400;
 	letter-spacing: 3px;
+	outline: none;
+}
+
+button:hover {
+	background-color: #474747;
+}
+
+button:active {
+	background-color: #515151;
 }
