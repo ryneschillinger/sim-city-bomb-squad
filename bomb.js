@@ -20,7 +20,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	var timer = parseFloat(document.getElementById("timer").textContent).toFixed(2);
 
-	// The main coundown function
+	// The main coundown function (with checkIfDone function placed inside, 
+	// since that needs to be looped while timer is running)
 	var countdown = function() {
 		timer -= .01;
 		document.getElementById("timer").textContent =  Math.round(timer * 100) / 100;
@@ -42,6 +43,17 @@ document.addEventListener("DOMContentLoaded", function() {
 	setTimeout(function () {
 		gameOver();
 	}, 30001);
+
+
+	// CHECK TO SEE IF SUCCESSFULLY CUT ALL REMAINING WIRES
+
+	function checkIfDone(wires) {
+	    for (var i = 0; i < wires.length - 1; i++) {
+	        if (wires[i] == true) {
+	            return false;
+	        }
+	    } return true;
+	}
 
 
 	// CUTTING WIRES
@@ -95,17 +107,6 @@ document.addEventListener("DOMContentLoaded", function() {
 			console.log(wires);
 		}
 	});
-
-
-	// CHECK TO SEE IF SUCCESSFULLY CUT ALL REMAINING WIRES
-
-	function checkIfDone(wires) {
-	    for (var i = 0; i < wires.length - 1; i++) {
-	        if (wires[i] == true) {
-	            return false;
-	        }
-	    } return true;
-	}
 
 
 	// RESET GAME
