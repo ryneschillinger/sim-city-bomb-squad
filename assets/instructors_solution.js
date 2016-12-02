@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
   console.log("Wires created:", wiresToCut[0], wiresToCut[1], wiresToCut[2], wiresToCut[3], wiresToCut[4]);
 
   //Start a timer that counts down
-
+  interval = setInterval(tick, 1000);
 
   //Add an event listener to each wire
   var box = document.getElementById("box");
@@ -59,7 +59,27 @@ document.addEventListener("DOMContentLoaded", function() {
       }
       else {
         console.log("uhoh");
+        clearInterval(interval);
+        document.body.style.background = "url('img/explosion.jpg')";
       }
+  }
+
+  function tick(){
+    console.log("tick!");
+    time -= 1; //actual time
+    document.getElementById("timer").textContent = time;  //display
+
+    if(doneCuttingWires()){
+      //I win!
+      clearInterval(interval);
+      document.getElementById("timer").textContent = "YAYYYYY - YOU WIN!!"
+    }
+
+    //Check if I ran out of time
+    if(time <= 0){
+      clearInterval(interval);
+      document.body.style.background = "url('img/explosion.jpg')";
+    }
   }
 
 });
